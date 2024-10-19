@@ -3,3 +3,4 @@ import os
 
 
 print(tf.__version__)
+print("HIHI")
