@@ -142,7 +142,7 @@ if __name__ == "__main__":
     X_train_scaled, X_test_scaled, y_train, y_test = preprocess_data('soil_AI/dataset/ALL_4000_750_881筆(未調).xlsx')
 
      # 建立並訓練 CNN 模型
-    model, history = build_and_train_cnn(X_train_scaled, y_train, X_test_scaled, y_test, 700)
+    model, history = build_and_train_cnn(X_train_scaled, y_train, X_test_scaled, y_test, 600)
 
     plot_r2(history)
     plot_loss(history)
