@@ -40,7 +40,7 @@ def preprocess_data(data_path):
     scaled_features = scaler.fit_transform(features)
     
     # 使用 PCA 降維，選擇主要的 1 個主成分
-    pca = PCA(n_components=100)
+    pca = PCA(n_components=1)
     pc1 = pca.fit_transform(scaled_features)
     
     # # 輸出 PCA 主成分權重
@@ -143,7 +143,7 @@ if __name__ == "__main__":
     X_train_scaled, X_test_scaled, y_train, y_test = preprocess_data('soil_AI/dataset/FTIR(調基準線)_senior.xlsx')
 
     # 遍歷 1 ~ 100000 種子
-    for seed in tqdm(range(42,500)):
+    for seed in tqdm(range(42,43)):
         print(f"Trying seed: {seed}")
         set_seed(seed)  # 設定隨機種子
 
