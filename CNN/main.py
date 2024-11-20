@@ -85,7 +85,7 @@ def build_and_train_cnn(X_train, y_train, X_test, y_test, epochs):
     model.add(Dense(1))
     model.compile(optimizer=Adam(learning_rate=0.0001), loss='mae', metrics=['mae', r2_metric]) # 使用 Adam 優化器和均方誤差損失函數（適合迴歸）
 
-    history = model.fit(X_train_scaled, y_train, epochs=epochs, validation_data=(X_test_scaled, y_test), batch_size=256)
+    history = model.fit(X_train_scaled, y_train, epochs=epochs, validation_data=(X_test_scaled, y_test), batch_size=512)
 
 
     model.save('soil_AI/model/my_cnn_model.h5')
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     X_train_scaled, X_test_scaled, y_train, y_test = preprocess_data('soil_AI/dataset/ALL_4000_750_881筆(未調).xlsx')
 
      # 建立並訓練 CNN 模型
-    model, history = build_and_train_cnn(X_train_scaled, y_train, X_test_scaled, y_test, 600)
+    model, history = build_and_train_cnn(X_train_scaled, y_train, X_test_scaled, y_test, 700)
 
     plot_r2(history)
     plot_loss(history)
